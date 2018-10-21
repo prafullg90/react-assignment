@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import UserOutput from './UserOutput/UserOutput';
+import UserInput from './UserInput/UserInput';
+import './UserOutput/UserOutput.css';
 import './App.css';
 
 class App extends Component {
+  state = {
+    name : 'Prafullkumar Gaikwad',
+    age : 28
+  }
+
+  changeNameHandler = (event) => {
+    this.setState({
+      name : event.target.value
+    })
+
+  }
   render() {
+
+    const style = {
+      
+        width: "100%",
+        padding: "12px 20px",
+        margin: "8px 0",
+        
+    
+    }
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+       <h1>My First Assignment in React js !</h1>
+       <UserOutput  name={this.state.name} age={this.state.age}/>
+       <UserInput style={style} name={this.state.name} changeName={this.changeNameHandler}/>
       </div>
     );
   }
